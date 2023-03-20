@@ -33,6 +33,8 @@ let squareNumbers;
 let squareForRow;
 let score = 1;
 let gameFinish = false;
+let clicked = false;
+
 
 
 //Messaggio che cambia al click play
@@ -109,11 +111,13 @@ function cellGenerate(){
             messageScore.innerText = `Your score is: ${score}`;
             //Verificare per stoppare l'incremento dello score sulla stessa casella
             drawSquare.classList.add('removeScore');
-            if (drawSquare.contains('removeScore')) {
-               score = 0;
-               console.log(drawSquare);
-
+            if (drawSquare.classList.contains('removescore')){
+                score = 0;
+                clicked = true;
+                console.log(clicked);
+                console.log(score)
             }
+            
 
             //Completare la verifica se si ha vinto 
                         
