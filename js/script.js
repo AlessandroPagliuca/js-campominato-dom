@@ -31,7 +31,7 @@ btnFormlevel.addEventListener('submit', play);
 let minePositions = [];
 let squareNumbers;
 let squareForRow;
-let score = 1;
+let score = 0;
 let gameFinish = false;
 let clicked = false;
 
@@ -116,7 +116,7 @@ function cellGenerate(){
                 console.log(bomb1);
                 drawSquare.innerText = '';
                 drawSquare.appendChild(bomb1);
-                score -= 1;
+                score;
                 messageScore.innerText = `You lose: ${score} , press play for a new game`;
                 messageScore.classList.add('c92messageLose');
                 gameFinish = true;
@@ -124,8 +124,8 @@ function cellGenerate(){
             } else{
                 drawSquare.style.background = 'green';
                 score++;
+                messageScore.innerText = `Your score is: ${score}`;
             }
-            messageScore.innerText = `Your score is: ${score}`;
 
         }
     }
