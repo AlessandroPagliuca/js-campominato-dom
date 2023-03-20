@@ -47,7 +47,7 @@ function play(e){
     const c92Playground = document.getElementById('c92Playground');
     c92Playground.innerHTML = '';
     //Reset score quando clicco su play
-    score = 1;
+    score = 0;
     gameFinish = false;
     //Rimuovo la classe che aggiunge il colore red al messaggio di sconfitta
     messageScore.classList.remove('c92messageLose');
@@ -97,27 +97,21 @@ function cellGenerate(){
         c92Playground.appendChild(drawSquare);
         //Aggiungiamo square con l'evento click sulla casella
         drawSquare.addEventListener('click', square);
-        //Aggiunto il punteggio quando andiamo a cliccare sulla casella
-        drawSquare.addEventListener('click',points);
-        function points(){
-            score++;
-        }
         function square(){
+            score++;
             if(gameFinish == true)
+            return;
+            if(clicked == true)
             return;
             drawSquare.style.background = 'green';
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
             messageScore.innerText = `Your score is: ${score}`;
             //Verificare per stoppare l'incremento dello score sulla stessa casella
-            drawSquare.classList.add('removeScore');
-            if (drawSquare.classList.contains('removescore')){
-                score = 0;
-                clicked = true;
-                console.log(clicked);
-                console.log(score)
-            }
-            
+            drawSquare.classList.add('removeScore')
+            if(drawSquare.classList.contains('removeScore'))
+            clicked = true;
+            console.log(clicked);
 
             //Completare la verifica se si ha vinto 
                         
