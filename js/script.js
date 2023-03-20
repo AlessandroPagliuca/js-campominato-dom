@@ -96,9 +96,10 @@ function cellGenerate(){
         //Aggiungiamo square con l'evento click sulla casella
         drawSquare.addEventListener('click', square);
         //Aggiunto il punteggio quando andiamo a cliccare sulla casella
-        drawSquare.addEventListener('click', () => {
+        drawSquare.addEventListener('click',points);
+        function points(){
             score++;
-        });
+        }
         function square(){
             if(gameFinish == true)
             return;
@@ -106,6 +107,14 @@ function cellGenerate(){
             console.log(drawSquare.innerText);
             console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
             messageScore.innerText = `Your score is: ${score}`;
+            //Verificare per stoppare l'incremento dello score sulla stessa casella
+            drawSquare.classList.add('removeScore');
+            if (drawSquare.contains('removeScore')) {
+               score = 0;
+               console.log(drawSquare);
+
+            }
+
             //Completare la verifica se si ha vinto 
                         
             //verifichiamo se la casella è una bomba il bg-color è red
