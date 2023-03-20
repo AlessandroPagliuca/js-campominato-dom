@@ -98,20 +98,13 @@ function cellGenerate(){
         //Aggiungiamo square con l'evento click sulla casella
         drawSquare.addEventListener('click', square);
         function square(){
-            score++;
             if(gameFinish == true)
             return;
-            if(clicked == true)
-            return;
-            drawSquare.style.background = 'green';
-            console.log(drawSquare.innerText);
-            console.log(minePositions.indexOf(parseInt(drawSquare.innerText)));
-            messageScore.innerText = `Your score is: ${score}`;
             //Verificare per stoppare l'incremento dello score sulla stessa casella
-            drawSquare.classList.add('removeScore')
-            if(drawSquare.classList.contains('removeScore'))
-            clicked = true;
-            console.log(clicked);
+            if(drawSquare.classList.contains('clicked'))
+            return;
+            drawSquare.classList.add('clicked')
+
 
             //Completare la verifica se si ha vinto 
                         
@@ -128,7 +121,12 @@ function cellGenerate(){
                 messageScore.classList.add('c92messageLose');
                 gameFinish = true;
                 mineShowAll();
+            } else{
+                drawSquare.style.background = 'green';
+                score++;
             }
+            messageScore.innerText = `Your score is: ${score}`;
+
         }
     }
 
