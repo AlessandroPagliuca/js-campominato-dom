@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <title>js-campominato-grid</title>
+</head>
+<body>
+    <div class="c92-wrapper">
+        <header>
+            <div class="container h-100 d-flex justify-content-between align-items-center">
+                <h1>Minefield</h1>
+
+                <form id="levelForm">
+                    <label for="level" class="fs-5">Level:</label>
+                    <select name="level" id="level">
+                        <option value="easy" selected>Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                        <button type="submit" class="btn btn-warning">Play</button>
+                </form>
+            </div>
+        </header>
+        <main class="bg-dark">
+            <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
+                <div id="c92Playground" class="d-flex flex-wrap">
+                </div>
+                <div class="pt-5">
+                    <h3 id="messageScore" class="text-white">Your score</h3>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p class="container h-100 d-flex align-items-center fs-5">Made with &hearts; by <a href="#" class="mx-1">Boolean</a></p>
+        </footer>
+    </div>
+    
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
